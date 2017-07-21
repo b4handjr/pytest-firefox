@@ -11,7 +11,7 @@ Requirements
 You will need the following prerequisites in order to use pytest-firefox:
 
 - Python 2.7, 3.6
-- py.test 2.7 or newer
+- pytest 3.0 or newer
 
 Installation
 ------------
@@ -36,4 +36,4 @@ to your test.
 This will open a new window.
 
 ``pytest-firefox`` also creates a default Selenium Webdriver object named
-``selenium`.
+``selenium``.
