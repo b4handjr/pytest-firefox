@@ -6,7 +6,7 @@
 from setuptools import setup
 
 setup(name='pytest-firefox',
-      version=0.1,
+      use_scm_version=True,
       description='pytest plugin for access to firefix chrome',
       long_description=open('README.rst').read(),
       author='Benjamin Forehand Jr',
@@ -17,7 +17,7 @@ setup(name='pytest-firefox',
           'foxpuppet>=1.0a1',
           'pytest>=3.0.2',
           'pytest-selenium>=1.10.0',
-          'selenium>=3.1.0'],
+          'selenium>=3.4.0'],
       setup_requires=['setuptools_scm'],
       entry_points={'pytest11': [
         'firefox = pytest_firefox.pytest_firefox']},
