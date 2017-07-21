@@ -1,6 +1,39 @@
-pytest-foxpuppet
+pytest-firefox
 ===============
 
-pytest-foxpuppet is a plugin for `pytest <http://pytest.org>`_ that provides
+pytest-firefox is a plugin for `pytest <http://pytest.org>`_ that provides
 support for running `Foxpuppet <http://https://github.com/mozilla/FoxPuppet/>`_
-within tests
+to control `Firefox Web Browser <https://www.mozilla.org/en-US/firefox/>`_ within tests
+
+Requirements
+------------
+
+You will need the following prerequisites in order to use pytest-firefox:
+
+- Python 2.7, 3.6
+- py.test 2.7 or newer
+
+Installation
+------------
+
+To install pytest-firefox:
+
+.. code-block:: bash
+
+  $ pip install pytest-firefox
+
+Usage
+-----
+
+To use pytest-firefox with your tests simply specify ```firefox``` as a fixture
+to your test.
+
+.. code-block:: python
+
+  def test_something(firefox):
+      firefox.open_window()
+
+This will open a new window.
+
+pytest-firefox also creates a default Selenium Webdriver object named
+```selenium```.
