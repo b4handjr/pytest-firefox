@@ -26,7 +26,7 @@ To install pytest-firefox:
 Usage
 -----
 
-To use pytest-firefox with your tests simply specify ``firefox` as a fixture
+To use pytest-firefox with your tests simply specify ``firefox`` as a fixture
 to your test.
 
 .. code-block:: python
