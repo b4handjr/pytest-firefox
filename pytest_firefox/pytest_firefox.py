@@ -9,19 +9,15 @@ from selenium.webdriver import Firefox
 from foxpuppet import FoxPuppet
 
 
-@pytest.yield_fixture
+@pytest.fixture
 def firefox(selenium):
     """Return initialized foxpuppet object."""
     yield FoxPuppet(selenium)
 
 
 @pytest.fixture
-def notifications(firefox):
-    """Provide access to the different types of firefox notifications.
-
-    :returns: An object containing references to notification types
-    :return type: Object
-    """
+def notifications():
+    """Provide access to the different types of firefox notifications."""
     from foxpuppet.windows.browser.notifications.addons import NOTIFICATIONS
 
     for item in NOTIFICATIONS.values():
@@ -29,10 +25,12 @@ def notifications(firefox):
     return notifications
 
 
-@pytest.yield_fixture
-def selenium(pytestconfig, selenium):
+@pytest.fixture
+def selenium(pytestconfig, request):
     """Yield selenium object if user has not already created one."""
-    if pytestconfig.pluginmanager.has_plugin('selenium'):
-        yield selenium
+    if pytestconfig.pluginmanager.hasplugin('selenium'):
+        yield request.getfixturevalue('selenium')
     else:
-        yield Firefox()
+        driver = Firefox()
+        yield driver
+        driver.quit()
